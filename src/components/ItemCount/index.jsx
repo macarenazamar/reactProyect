@@ -12,7 +12,9 @@ const ItemCount = ({handleAdd, initialStock}) => {
       }
     }
     const onDecrement = () => {
-      setCount(count - 1);
+      if (count >= 1){
+        setCount(count - 1);
+      }
     }
     //quiero que al apretar el boton agrear al carrito me redirija a la pagína donde voy a tener todo el carrito de compra, es decir, las compras pre seleccionadas, lo vemos a esto más adelante?
   return (
