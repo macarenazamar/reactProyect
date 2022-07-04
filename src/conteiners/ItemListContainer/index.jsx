@@ -5,11 +5,13 @@ import ItemList from '../../components/ItemList'
 
 const ItemListContainer = ({greeting}) => {
 
-  const [productos, setProductos] = useState(null)
+  const [productos, setProductos] = useState([])
+
   useEffect(()=> {
+
     const getProductos = async() =>{
       try {
-        const response = await fetch('/mocks/data.json');
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
         const data = await response.json()
         console.log(data);
         setProductos(data);
@@ -23,10 +25,13 @@ const ItemListContainer = ({greeting}) => {
 
   }, [])
 
+  console.log(productos);
+
   const handleAdd = (count) => {
     console.log(`Se agrego al carrito ${count} productos`);
   }
   console.log(productos);
+
   return (
     <div>
         <p>{greeting}</p>
@@ -34,8 +39,9 @@ const ItemListContainer = ({greeting}) => {
         {productos ?
         <ItemList products={productos} />
         :
-        null
+        <p>Loading...</p>
         }
+        
     </div>
   )
 }

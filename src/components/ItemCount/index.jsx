@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
-const ItemCount = ({handleAdd, initialStock}) => {
+//si pongo initial, stock me da error, si dejo solo stock también 
+const ItemCount = ({handleAdd, stock}) => {
     const [count, setCount] = useState (0);
     //Agregamos stock
     let stock = 10;
